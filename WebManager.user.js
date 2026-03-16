@@ -4,8 +4,8 @@
 // @author       airbash
 // @homepageURL  https://github.com/AirBashX/UserScript
 // @version      0.0.1
-// @description  网页管家
-// @match        *://*.aichatos.xyz/*
+// @description  删除`腾讯新闻`文章中点击后在元宝查询的样式
+// @match        *://news.qq.com/*
 // @license      GPL-3.0
 // @run-at       document-end
 // ==/UserScript==
@@ -13,16 +13,9 @@
 (function () {
     "use strict";
 
-    //删除腾讯新闻调用元宝样式
-    let items = document.querySelectorAll(".qnt-link");
+    const items = document.querySelectorAll('[dt-eid="em_huaci"]');
     for (let item of items) {
-        //去除查询符号 删除紧邻的下一个<i>元素
-        /** @type {HTMLElement} */
-        let nextElement = item.nextElementSibling;
-        if (nextElement && nextElement.tagName === "I") {
-            nextElement.remove();
-            //去除查询下划线 删除类名
-            item.classList.remove("qnt-link");
-        }
+        const pureText = item.textContent.trim();
+        item.textContent = pureText;
     }
 })();
