@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         豆瓣助手
-// @version      1.1.1
+// @version      1.1.2
 // @namespace    airbash/DoubanAssistant
 // @homepageURL  https://github.com/AirBashX/UserScript
 // @author       airbash
 // @description  恢复IMDB的链接,展示IMDB评分,以及增加快捷搜索SubHD、字幕库、射手网、opesubtitle、6V电影网、电影天堂、新电影天堂、rarbg、rargb、海盗湾、limetorrents、watchsomuch、EXT、yts、imbt、腾讯视频、优酷视频、爱奇艺、哔哩哔哩、抖音视频、欢喜首映、soali、混合盘、伏羲盘、小云搜索、V盘搜、懒盘搜索、夸克盘搜、阿里盘搜、盘了个盘中资源的功能
 // @match        *://movie.douban.com/*
 // @match        *://www.douban.com/personage/*
-// @connect      www.hao6v.me
+// @connect      www.6v520.com
 // @connect      www.imdb.com
 // @connect      dy2018.com
 // @grant        GM_registerMenuCommand
@@ -185,8 +185,8 @@
 					search: "https://search.bilibili.com/all?keyword=" + douban_cn_name,
 				},
 				{
-					name: "搜音视频",
-					url: "www.ixigua.com",
+					name: "抖音视频",
+					url: "www.douyin.com",
 					search: "https://www.douyin.com/root/search/" + douban_cn_name,
 				},
 				{
@@ -203,15 +203,15 @@
 				{
 					name: "6v电影网",
 					url: "www.hao6v.tv",
-					search: "https://www.hao6v.me/e/search/index.php",
+					search: "https://www.6v520.com/e/search/index.php",
 					data: "show=title%2Csmalltext&tempid=1&keyboard=" + douban_gbk_name + "&tbname=article&x=0&y=0",
 					type: "xhr",
 					anonymous: true,
 				},
 				{
-					name: "电影天堂",
-					url: "www.dygod.net",
-					search: "https://www.dygod.net/",
+					name: "BT之家",
+					url: "www.1lou.info",
+					search: "https://www.1lou.info/search-_" + douban_cn_name + "-1.htm",
 				},
 				{
 					name: "新电影天堂",
