@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         骚扰拦截
-// @version      1.5.4
+// @version      1.5.5
 // @namespace    airbash/AnnoyancesInterception
 // @homepageURL  https://github.com/AirBashX/UserScript
 // @author       airbash
@@ -491,6 +491,8 @@
 			items: [
 				//PC端:登录提示
 				"div:has(.unlogin-popover-avatar)",
+				//悬浮弹窗： 打开APP，看更多精彩内容
+				".m-fixed-openapp-v2"
 			],
 		},
 		{
@@ -545,7 +547,7 @@
 					for (let mutation of mutationsList) {
 						for (let node of mutation.addedNodes) {
 							if (node.nodeType == Node.ELEMENT_NODE) {
-								const closeBtn = document.querySelector(".DKE9HSAk");
+								const closeBtn = document.querySelector("#douyin_login_comp_flat_panel :has(>svg)");
 								//关闭登录弹窗
 								if (closeBtn) {
 									if (LoginFlag == true) {
