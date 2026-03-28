@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         自动展开
-// @version      1.3.81
+// @version      1.3.82
 // @namespace    https://github.com/AirBashX/AutoUnfold/
 // @homepageURL  https://github.com/AirBashX/UserScript
 // @author       airbash
@@ -34,7 +34,7 @@
 // @match        *://m.bjnews.com.cn/detail/*
 // @match        *://*.huanqiu.com/article/*
 // @match        *://3w.huanqiu.com/a/*
-// @match        *://3g.china.com/act/*
+// @match        *://*.china.com/*
 // @match        *://m.toutiao.com/article/*
 // @match        *://mini.eastday.com/*
 // @match        *://*.dxy.cn/*
@@ -667,8 +667,13 @@
 		},
 		{
 			name: "中华网",
-			url: "3g.china.com/act/",
+			url: "china.com/",
 			handles: [
+				//PC端:全文
+				{
+					type: "click",
+					item: ".nextPage",
+				},
 				//点击查看全文(剩余n%)
 				{
 					type: "display",
