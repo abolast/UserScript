@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         自动展开
-// @version      1.3.82
+// @version      1.3.83
 // @namespace    https://github.com/AirBashX/AutoUnfold/
 // @homepageURL  https://github.com/AirBashX/UserScript
 // @author       airbash
@@ -696,7 +696,7 @@
 				},
 				{
 					type: "display",
-					item: ".content-shadow",
+					item: ".arrow-container",
 				},
 				{
 					type: "height",
