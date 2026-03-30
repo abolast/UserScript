@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         骚扰拦截
-// @version      1.5.5
+// @version      1.5.6
 // @namespace    airbash/AnnoyancesInterception
 // @homepageURL  https://github.com/AirBashX/UserScript
 // @author       airbash
@@ -96,6 +96,8 @@
 				".feed-Sign-weixin",
 				//悬浮按钮:APP内打开+登录/打开注册(主页)
 				".feed-Sign-span",
+				//悬浮按钮：ai
+				"[class^=mobileContainer]",
 				//PC端:弹窗:学生认证
 				"#csdn-highschool-window",
 				//PC端:登录弹窗(顶部)
@@ -492,7 +494,7 @@
 				//PC端:登录提示
 				"div:has(.unlogin-popover-avatar)",
 				//悬浮弹窗： 打开APP，看更多精彩内容
-				".m-fixed-openapp-v2"
+				".m-fixed-openapp-v2",
 			],
 		},
 		{
@@ -710,8 +712,7 @@
 			url: "m.thepaper.cn/newsDetail_forward",
 			items: [
 				//悬浮按钮:新闻滚条(底部)
-				"[class^=index_footer_banner]",
-				"[.index_footer_banner__Mcr_R]",
+				"[class^=footer_banner]",
 			],
 		},
 		{
@@ -742,6 +743,9 @@
 			items: [
 				//固定按钮：App内打开(底部)
 				".backflow-floating",
+				//悬浮按钮：App内打开(主页：底部)
+				".floatMenu-backflow"
+
 			],
 		},
 		{
