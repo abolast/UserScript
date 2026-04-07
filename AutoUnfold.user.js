@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         自动展开
-// @version      1.3.83
+// @version      1.3.84
 // @namespace    https://github.com/AirBashX/AutoUnfold/
 // @homepageURL  https://github.com/AirBashX/UserScript
 // @author       airbash
@@ -596,6 +596,16 @@
 					type: "click",
 					item: "[class^=index_videoBrefTextBtn_]",
 				},
+				//继续阅读:手机凤凰网
+				{
+					type: "click",
+					item: ".yxqw",
+				},
+				//展开:用户页内新闻
+				{
+					type: "click",
+					item: "[class^=index_shadow_]",
+				},
 			],
 		},
 		{
@@ -680,6 +690,10 @@
 					item: "#js-continue-reading",
 				},
 				{
+					type: "display",
+					item: "#js_continue_read_btn",
+				},
+				{
 					type: "height",
 					item: "#artiCon",
 				},
@@ -697,6 +711,10 @@
 				{
 					type: "display",
 					item: ".arrow-container",
+				},
+				{
+					type: "display",
+					item: ".content-shadow.style-3",
 				},
 				{
 					type: "height",
