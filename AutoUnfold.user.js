@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         自动展开
-// @version      1.3.84
+// @version      1.3.85
 // @namespace    https://github.com/AirBashX/AutoUnfold/
 // @homepageURL  https://github.com/AirBashX/UserScript
 // @author       airbash
@@ -35,7 +35,7 @@
 // @match        *://*.huanqiu.com/article/*
 // @match        *://3w.huanqiu.com/a/*
 // @match        *://*.china.com/*
-// @match        *://m.toutiao.com/article/*
+// @match        *://*.toutiao.com/article/*
 // @match        *://mini.eastday.com/*
 // @match        *://*.dxy.cn/*
 // @match        *://www.cn-healthcare.com/*
@@ -719,6 +719,22 @@
 				{
 					type: "height",
 					item: ".content",
+				},
+			],
+		},
+		{
+			name: "今日头条:PC版",
+			url: "www.toutiao.com/article/",
+			handles: [
+				//点击查看完整内容
+				{
+					type: "display",
+					item: ".expand-button-wrapper",
+
+				},
+				{
+					type: "height",
+					item: ".expand-container",
 				},
 			],
 		},
