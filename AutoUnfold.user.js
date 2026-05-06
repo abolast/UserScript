@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         自动展开
-// @version      1.3.85
+// @version      1.3.86
 // @namespace    https://github.com/AirBashX/AutoUnfold/
 // @homepageURL  https://github.com/AirBashX/UserScript
 // @author       airbash
@@ -77,8 +77,7 @@
 // @match        *://programmercarl.com/*
 // @match        *://blog.didispace.com/*
 // @match        *://*.wang1314.com/doc/*
-// @match        *://*.k4china.com/*
-// @match        *://www.tofacebook.com/*
+// @match        *://www.guancha.cn/economy/*
 // @run-at       document-start
 // @icon         data:image/png;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAA29JREFUeF7tmMvrT08Yx1/fnViwVcq/gqKQa8gtd0Kyk8Vv81tZKWGByC233JWIwp9iYcPORkT56fl1po5pnjNn5syc6dOZz/Iz1/dr3s9z5pk5Jv6bm7h+KoDqgIkTqCEwcQPUJFhDoIbAxAnUEJi4AepXoIZADYGJE4gJgSPAF+BFYXYngU/AsyH7CAUg4s8B84GNBSGI+DPAAmDzEAghANriDfS9wO0hJxAx9iBwvhFvhu8HbkbM1fsz6BJfAoJL/CAIfRzQJX5MCF3ioyH4AOwGrjQxbxb5Cixy2G0fcCvGhj3GuMS79vEfIH1v9Jjz/y5dADTx/wCfgScjQdDE/wt8dCTiIAgaAE38MeBBI1yyrw3hN3AgoRO2A9eshCcnfwK42+xjvQJBxj70OcEFQMRftGz+C5BcYGfanBD6iDf6DgFXLbHihG3A4y4ILgBbgEeOQWuA147/VwFvrP/FCbK4K0x8hyLtmnj53D13TCD9LwMLW23fAclLnS7QQmCDspAGYRdwJxEEifmzlgN/AiL+npJ35HLWTsy9xPuS4A5lwVAI0t92iOaCUcX7AEh7qBPEivcdTlgHvPJ435Xtu07+aHMtnxdq+/Y+fPcA6RuaEzQIq4G3CoQi4vs4wOx3GfAhIDEuB947nOCCECpeEtslYNDJm731cYDp6xIlbVpOWAG880AoKj7EAUbHWuClwwlble+tC4IMl1J6aaukNVNKzMsJ23lE2pPEvL33EAfEQlipxP4364Y3uvgYB/ggHG6urjZoDYLpJ9fb4wEnL/1PKWt5PjZ/N8c4IDWELvGuhJdM/BAHxELYBDxtnUFR8SkAyBxaYtypWNpAKC4+FQCZZ49SAmsQpIpcAlxwBKzY3nW3P91UqUEx7us8JAfYc2sQQl6PNfHyDpHltSklgC4n9IEgoXHdUdVlE58yBNpukEuRqwbXbowyVuoHud5GlbQ+m3e1p3aAWSukitRs733MGCLcjM0FQObv855QVHyuEGgfTJcTpBaQbJ+kqot1Q04HmD1p7wk/SosfwwEGgvaeYNp7v+HFnrQ2bgwHmLW194Ri4sd0gFY7FBVfAkC7diguvhQAA2Fxinp+aE4YMwcM3WuW8RVAFqwzNGl1wAwdVpatVgdkwTpDk1YHzNBhZdlqdUAWrDM06eQd8Acza/FB2qWb3AAAAABJRU5ErkJggg==
 // @grant        none
@@ -233,7 +232,7 @@
 			],
 			//删除遮挡栏
 			fun: function () {
-				let css = document.createElement("style");
+				const css = document.createElement("style");
 				css.innerText = ".collapse-free-content::after {height: 0px !important}";
 				document.head.appendChild(css);
 			},
@@ -252,7 +251,7 @@
 				},
 			],
 			fun: function () {
-				let css = document.createElement("style");
+				const css = document.createElement("style");
 				//空白遮挡
 				css.innerText += ".RichContent--unescapable.is-collapsed .RichContent-inner {mask-image: unset !important;}";
 				//点击按钮
@@ -350,7 +349,7 @@
 			],
 			fun: function () {
 				//点击加载更多
-				let button = document.querySelector(".yx-load-more-inner");
+				const button = document.querySelector(".yx-load-more-inner");
 				button.dispatchEvent(new Event("tap"));
 			},
 		},
@@ -391,7 +390,7 @@
 			],
 			fun: function () {
 				//工具相关内容下移,避免遮挡
-				let item = document.querySelector(".fold-pager");
+				const item = document.querySelector(".fold-pager");
 				if (item) {
 					item.style.setProperty("margin-top", "0px");
 				}
@@ -408,7 +407,7 @@
 				},
 			],
 			fun: function () {
-				let item = document.querySelector("#read-view");
+				const item = document.querySelector("#read-view");
 				item.setAttribute("scrolling", "yes");
 			},
 		},
@@ -530,7 +529,7 @@
 			],
 			fun: function () {
 				onload = function () {
-					let item = document.querySelector("#artLookAll");
+					const item = document.querySelector("#artLookAll");
 					item.click();
 					clearInterval(interval);
 				};
@@ -730,7 +729,6 @@
 				{
 					type: "display",
 					item: ".expand-button-wrapper",
-
 				},
 				{
 					type: "height",
@@ -818,12 +816,12 @@
 			handles: [],
 			fun: function () {
 				//PC端展开简介
-				let item1s = document.querySelectorAll(".folded");
-				for (let item of item1s) {
+				const item1s = document.querySelectorAll(".folded");
+				for (const item of item1s) {
 					item.className = "bili-rich-text__content";
 				}
-				let item2s = document.querySelectorAll(".bili-rich-text__action");
-				for (let item2 of item2s) {
+				const item2s = document.querySelectorAll(".bili-rich-text__action");
+				for (const item2 of item2s) {
 					item2.innerText = "收起";
 				}
 			},
@@ -879,9 +877,9 @@
 			],
 			fun: function () {
 				//展开(简介)
-				let item1 = document.querySelector(".subject-intro p");
+				const item1 = document.querySelector(".subject-intro p");
 				try {
-					let str = item1.getAttribute("data-content");
+					const str = item1.getAttribute("data-content");
 					if (str) {
 						item1.innerText = str;
 					}
@@ -890,14 +888,14 @@
 				}
 				onload = function () {
 					//展开(评论)
-					let items2 = document.querySelectorAll(".LinesEllipsis-readmore");
-					for (let item of items2) {
+					const items2 = document.querySelectorAll(".LinesEllipsis-readmore");
+					for (const item of items2) {
 						item.click();
 					}
 
 					//展开(PC端:评论;简介;人物简介)
-					let items3 = document.querySelectorAll(".expand,.a_show_full,.fold-switch");
-					for (let item of items3) {
+					const items3 = document.querySelectorAll(".expand,.a_show_full,.fold-switch");
+					for (const item of items3) {
 						item.click();
 					}
 				};
@@ -1204,7 +1202,7 @@
 			],
 			//删除透明遮挡
 			fun: function () {
-				let css = document.createElement("style");
+				const css = document.createElement("style");
 				css.innerHTML = ".item-lz .bd.onhide:before{content:none}";
 				document.head.append(css);
 			},
@@ -1305,8 +1303,8 @@
 			],
 			fun: function () {
 				onload = function () {
-					let item1 = document.querySelector(".stretch-more");
-					let item2 = item1.parentElement;
+					const item1 = document.querySelector(".stretch-more");
+					const item2 = item1.parentElement;
 					item2.remove();
 				};
 			},
@@ -1316,7 +1314,7 @@
 			url: "www.gushiwen.cn/",
 			handles: [],
 			fun: function () {
-				let item1s = document.evaluate("//a[contains(text(), '阅读全文')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+				const item1s = document.evaluate("//a[contains(text(), '阅读全文')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 				for (let i = 0; i < item1s.snapshotLength; i++) {
 					item1s.snapshotItem(i).click();
 				}
@@ -1393,78 +1391,63 @@
 			],
 		},
 		{
-			name: "科中资源网",
-			url: "k4china.com",
+			name: "观察者网",
+			url: "www.guancha.cn/economy/",
 			handles: [
-				//点击阅读全文
+				//PC端:全文
 				{
 					type: "click",
-					item: ".readmore",
-				},
-			],
-		},
-		{
-			name: "tofacebook",
-			url: "www.tofacebook.com",
-			handles: [
-				//阅读全部
-				{
-					type: "height",
-					item: ".panel-default",
-				},
-				{
-					type: "display",
-					item: ".more-box",
+					item: ".module-page-right>.last",
 				},
 			],
 		},
 	];
 	let time = 0;
-	let interval = setInterval(() => {
-		if (++time == 100) {
+	const interval = setInterval(() => {
+		if (++time === 100) {
 			clearInterval(interval);
 		}
-		for (let website of websites) {
-			if (location.href.indexOf(website.url) != -1) {
+		for (const website of websites) {
+			if (location.href.indexOf(website.url) !== -1) {
 				if (website.fun) {
 					website.fun();
 				}
-				for (let handle of website.handles) {
-					let items = document.querySelectorAll(handle.item);
-					if (items.length != 0) {
-						if (handle.type == "display") {
+				for (const handle of website.handles) {
+					const items = document.querySelectorAll(handle.item);
+					if (items.length !== 0) {
+						if (handle.type === "display") {
 							//隐藏遮挡部分
-							for (let item of items) {
+							for (const item of items) {
 								item.style.display = "none";
 							}
-						} else if (handle.type == "height") {
+						} else if (handle.type === "height") {
 							//加长内容部分
-							for (let item of items) {
+							for (const item of items) {
 								item.style.setProperty("height", "unset", "important");
 								item.style.setProperty("min-height", "unset", "important");
 								item.style.setProperty("max-height", "unset", "important");
 							}
-						} else if (handle.type == "overflow") {
+						} else if (handle.type === "overflow") {
 							//防止无法滑动
-							for (let item of items) {
+							for (const item of items) {
 								item.style.setProperty("overflow", "unset", "important");
 							}
-						} else if (handle.type == "classList") {
+						} else if (handle.type === "classList") {
 							//删除className
-							for (let item of items) {
+							for (const item of items) {
 								item.classList.remove(handle.remove);
 							}
-						} else if (handle.type == "click") {
+						} else if (handle.type === "click") {
 							//模拟一次点击
-							for (let item of items) {
-								if (item != null && item.getAttribute("opened") != "yes") {
+							for (const item of items) {
+								if (item != null && item.getAttribute("opened") !== "yes") {
 									item.click();
 									item.setAttribute("opened", "yes");
 								}
 							}
 						} else {
 							//模拟多次点击
-							for (let item of items) {
+							for (const item of items) {
 								if (item) {
 									item.click();
 								}
